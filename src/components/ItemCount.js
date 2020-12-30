@@ -1,31 +1,46 @@
-import React, { useState } from "react";  
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-
-function ItemCount (){
-    
-  const [contador, setContador] = useState(0);
+function ItemCount({ stock, initial, onAdd }) {
+  const [contador, setContador] = useState(parseInt(initial));
 
   const aumentarContador = () => {
-    setContador(contador + 1);
+    if (contador < stock) {
+      setContador(contador + 1);
+    }
+  };
+
+  const clickAdd = () => {
+    onAdd(contador);
+    setContador(parseInt(initial));
   };
 
   const restarContador = () => {
-    setContador(contador - 1);
+    if (contador > parseInt(initial)) {
+      setContador(contador - 1);
+    }
   };
 
-  const reiniciarContador = () => {
-    setContador(0);
-  };
-
-  return ( <div>
-    <p>Cantidad : {contador}</p>
-    <button onClick={aumentarContador}>+</button>
-    <button onClick={reiniciarContador}>Reiniciar</button>
-    <button onClick={restarContador}>-</button>
-  </div>)
-  
+  return (
+    <div>
+      <p>Cantidad : {contador}</p>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary" onClick={restarContador}>
+          -
+        </button>
+        <button type="button" class="btn btn-primary" onClick={clickAdd}>
+          Agregar al carrito
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          onClick={aumentarContador}
+        >
+          +
+        </button>
+      </div>
+    </div>
+  );
 }
-
-
 
 export default ItemCount;

@@ -1,8 +1,7 @@
-import React from 'react'
+import React from "react";
 
-function ItemListContainer({greeting}) {
-    return  (
-    <p style={{color: "red"}} >{greeting}</p>)
+function ItemListContainer({ greeting }) {
+  return <p style={{ color: "red" }}>{greeting}</p>;
 }
 
-export default ItemListContainer
+export default ItemListContainer;
