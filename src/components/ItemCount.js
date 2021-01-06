@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../Style.css";
 
 function ItemCount({ stock, initial, onAdd }) {
   const [contador, setContador] = useState(parseInt(initial));
@@ -22,7 +23,7 @@ function ItemCount({ stock, initial, onAdd }) {
   };
 
   return (
-    <div>
+    <div className="contador">
       <p>Cantidad : {contador}</p>
       <div class="btn-group" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-primary" onClick={restarContador}>

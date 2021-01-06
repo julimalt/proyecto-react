@@ -1,9 +1,10 @@
 import React from "react";
 import Carrito from "./CartWidget";
+import "../Style.css";
 
 function NavBar({ cantidad }) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark red">
       <div className="container-fluid">
         <button
           className="navbar-toggler"
