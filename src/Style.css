@@ -23,3 +23,20 @@ img{
     display: block;
     margin: auto;
 }
+
+.price{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.centrado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    width: 3rem;
+    border-radius: 50px;
+}
