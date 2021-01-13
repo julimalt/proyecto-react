@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../Style.css";
 
 function Item({ item }) {
-  const { id, title, autors, price, pictureUrl } = item;
+  const { id, title, autors, price, pictureUrl, category } = item;
   return (
     <div className="card" style={{ width: "18rem" }}>
       <img

@@ -1,11 +1,35 @@
-import React from "react";
 import ItemList from "./ItemList";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Productos } from "../Data";
 
-function ItemListContainer({ header }) {
+function ItemListContainer() {
+  const [productos, setProductos] = useState([]);
+  const { category } = useParams();
+
+  useEffect(() => {
+    obtenerProductos.then((resultado) => {
+      if (category) {
+        const productosFiltrados = resultado.filter(
+          (producto) => producto.categoryId == category
+        );
+        setProductos(productosFiltrados);
+      } else {
+        setProductos(resultado);
+      }
+    });
+  }, [category]);
+
+  //Si bien setTimeout se comporta como una promise, cree la Promise obtenerProductos para cumplir con crear una Promise
+  const obtenerProductos = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(Productos);
+    }, 2000);
+  });
   return (
     <div>
-      <h3 style={{ color: "#003049" }}>{header}</h3>
-      <ItemList />
+      {category ? <h5>Resultados encontrados para {category}...</h5> : <> </>}
+      <ItemList productos={productos} />
     </div>
   );
 }

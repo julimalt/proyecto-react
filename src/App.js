@@ -5,6 +5,7 @@ import "./Style.css";
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
+import Footer from "./components/Footer";
 import React, { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -18,7 +19,11 @@ function App() {
         <div style={{ padding: "20px" }}>
           <Switch>
             <Route exact path="/">
-              <ItemListContainer header="Resultados encontrados..." />
+              <img class="img" src="https://i.imgur.com/uR4KNPG.png" />
+              <ItemListContainer />
+            </Route>
+            <Route exact path="/category/:category">
+              <ItemListContainer />
             </Route>
             <Route exact path="/item/:id">
               <ItemDetailContainer
@@ -27,6 +32,7 @@ function App() {
               />
             </Route>
           </Switch>
+          <Footer />
         </div>
       </BrowserRouter>
     </div>

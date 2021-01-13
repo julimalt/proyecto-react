@@ -10,8 +10,6 @@ function ItemDetailContainer({ setCantidad, cantidad }) {
   useEffect(() => {
     getItems.then((resultado) => {
       const item = resultado.find((product) => product.id == id);
-      console.log(resultado);
-      console.log(id);
       setDetalles(item);
     });
   }, []);

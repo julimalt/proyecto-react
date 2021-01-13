@@ -18,7 +18,7 @@ function NavBar({ cantidad }) {
           <span className="navbar-toggler-icon"></span>
         </button>
         <a className="navbar-brand" href="/">
-          <img className="logo" src="https://i.imgur.com/yuqFte5.png" />
+          <img className="logo" src="https://i.imgur.com/yuqFte5.png" alt="" />
         </a>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -28,28 +28,28 @@ function NavBar({ cantidad }) {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" href="/">
-                Productos
+              <a className="nav-link active" href="/category/Comics">
+                Comics
               </a>
             </li>
             <li className="nav-item">
               <a
                 className="nav-link active"
-                href="#"
+                href="/category/Coleccionables"
                 tabindex="-1"
                 aria-disabled="true"
               >
-                Contacto
+                Coleccionables
               </a>
             </li>
             <li className="nav-item">
               <a
                 className="nav-link active"
-                href="#"
+                href="/category/Merchandising"
                 tabindex="-1"
                 aria-disabled="true"
               >
-                Sobre Nosotros
+                Merchandising
               </a>
             </li>
           </ul>
