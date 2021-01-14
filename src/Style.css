@@ -19,7 +19,7 @@ h5{
     border-width: 1.5px;
 }
 
-.card-body{
+.primera{
   display: grid;
   grid-template-rows: 25% 25% 25% 25%;
 }
