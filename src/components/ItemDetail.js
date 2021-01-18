@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ItemCount from "./ItemCount";
 
-function ItemDetail({ item, setCantidad, cantidad }) {
+function ItemDetail({ item, setCarrito, carrito }) {
   const [stock, setStock] = useState(5);
+  const [agregado, setAgregado] = useState(false);
   const agregarAlCarrito = (cantidadSolicitada) => {
     if (stock >= cantidadSolicitada) {
-      setCantidad(cantidad + cantidadSolicitada);
+      setCarrito(...carrito, {
+        ...item,
+        cantidadSolicitada: cantidadSolicitada,
+      });
       setStock(stock - cantidadSolicitada);
+      setAgregado(true);
     }
   };
   const { title, autors, description, price, pictureUrl } = item;
@@ -15,7 +20,11 @@ function ItemDetail({ item, setCantidad, cantidad }) {
     <div className="card mb-3" style={{ maxHeight: "500px" }}>
       <div className="row g-0">
         <div className="col-md-6">
-          <img src={pictureUrl} style={{ maxHeight: "400px" }} />
+          <img
+            src={pictureUrl}
+            style={{ maxHeight: "400px" }}
+            alt="Imagen Producto"
+          />
         </div>
         <div className="col-md-6">
           <div className="card-body">
@@ -23,9 +32,17 @@ function ItemDetail({ item, setCantidad, cantidad }) {
             <p className="card-text">{autors}</p>
             <p className="card-text">{description}</p>
             <p className="card-text price">{price}</p>
-            <div className="price">
-              <ItemCount stock={stock} initial="0" onAdd={agregarAlCarrito} />
-            </div>
+            {agregado ? (
+              <div>
+                <a href="/cart" className="btn btn-primary">
+                  Terminar compra
+                </a>
+              </div>
+            ) : (
+              <div className="price">
+                <ItemCount stock={stock} initial="0" onAdd={agregarAlCarrito} />
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ function Carrito({ cantidad }) {
         justifyContent: "center",
       }}
     >
-      <img style={{ height: "32px" }} src={Image} />
+      <img style={{ height: "32px" }} src={Image} alt="Carrito" />
       <span
         style={{
           position: "absolute",

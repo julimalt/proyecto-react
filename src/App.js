@@ -10,26 +10,27 @@ import React, { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
-  const [cantidadPedida, setCantidadPedida] = useState(0);
+  const [carrito, setCarrito] = useState([]);
 
   return (
     <div>
       <BrowserRouter>
-        <NavBar cantidad={cantidadPedida} />
+        <NavBar cantidad={carrito.length} />
         <div style={{ padding: "20px" }}>
           <Switch>
             <Route exact path="/">
-              <img class="img" src="https://i.imgur.com/uR4KNPG.png" />
+              <img
+                className="img"
+                src="https://i.imgur.com/uR4KNPG.png"
+                alt="banner Dr.Comics"
+              />
               <ItemListContainer />
             </Route>
             <Route exact path="/category/:category">
               <ItemListContainer />
             </Route>
             <Route exact path="/item/:id">
-              <ItemDetailContainer
-                setCantidad={setCantidadPedida}
-                cantidad={cantidadPedida}
-              />
+              <ItemDetailContainer setCarrito={setCarrito} carrito={carrito} />
             </Route>
           </Switch>
           <Footer />

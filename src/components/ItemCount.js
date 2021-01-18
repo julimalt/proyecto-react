@@ -25,16 +25,20 @@ function ItemCount({ stock, initial, onAdd }) {
   return (
     <div className="contador">
       <p>Cantidad : {contador}</p>
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary" onClick={restarContador}>
+      <div className="btn-group" role="group" aria-label="Basic example">
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={restarContador}
+        >
           -
         </button>
-        <button type="button" class="btn btn-primary" onClick={clickAdd}>
+        <button type="button" className="btn btn-primary" onClick={clickAdd}>
           Agregar al carrito
         </button>
         <button
           type="button"
-          class="btn btn-primary"
+          className="btn btn-primary"
           onClick={aumentarContador}
         >
           +

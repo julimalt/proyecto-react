@@ -36,7 +36,6 @@ function NavBar({ cantidad }) {
               <a
                 className="nav-link active"
                 href="/category/Coleccionables"
-                tabindex="-1"
                 aria-disabled="true"
               >
                 Coleccionables
@@ -46,7 +45,6 @@ function NavBar({ cantidad }) {
               <a
                 className="nav-link active"
                 href="/category/Merchandising"
-                tabindex="-1"
                 aria-disabled="true"
               >
                 Merchandising

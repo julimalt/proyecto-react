@@ -12,7 +12,7 @@ function ItemList({ productos }) {
       }}
     >
       {productos.map((producto) => (
-        <Item item={producto} />
+        <Item key={producto.id} item={producto} />
       ))}
     </div>
   );
