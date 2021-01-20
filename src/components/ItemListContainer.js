@@ -7,6 +7,7 @@ import Loader from "../Loader";
 function ItemListContainer() {
   const [productos, setProductos] = useState([]);
   const { category } = useParams();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     obtenerProductos.then((resultado) => {
@@ -18,6 +19,7 @@ function ItemListContainer() {
       } else {
         setProductos(resultado);
       }
+      setLoading(false);
     });
   }, [category]);
 
@@ -30,8 +32,18 @@ function ItemListContainer() {
   });
   return (
     <div>
-      {category ? <h5>Resultados encontrados para {category}...</h5> : <> </>}
-      <ItemList productos={productos} />
+      {loading ? (
+        <Loader />
+      ) : (
+        <div>
+          {category ? (
+            <h5>Resultados encontrados para {category}...</h5>
+          ) : (
+            <> </>
+          )}
+          <ItemList productos={productos} />
+        </div>
+      )}
     </div>
   );
 }

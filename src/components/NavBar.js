@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Carrito from "./CartWidget";
 import "../Style.css";
+import { CartContext } from "../CartContext";
 
-function NavBar({ cantidad }) {
+function NavBar() {
+  const { cantidad } = useContext(CartContext);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark red">
       <div className="container-fluid">
@@ -51,6 +54,7 @@ function NavBar({ cantidad }) {
               </a>
             </li>
           </ul>
+
           <Carrito cantidad={cantidad} />
           <form className="d-flex">
             <input

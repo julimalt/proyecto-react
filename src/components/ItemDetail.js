@@ -1,21 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ItemCount from "./ItemCount";
+import { CartContext } from "../CartContext";
 
-function ItemDetail({ item, setCarrito, carrito }) {
+function ItemDetail({ item }) {
+  const { addItem } = useContext(CartContext);
+
   const [stock, setStock] = useState(5);
+
   const [agregado, setAgregado] = useState(false);
+
+  const { title, autors, description, price, pictureUrl } = item;
+
   const agregarAlCarrito = (cantidadSolicitada) => {
     if (stock >= cantidadSolicitada) {
-      setCarrito(...carrito, {
+      addItem({
         ...item,
-        cantidadSolicitada: cantidadSolicitada,
+        cantidad: cantidadSolicitada,
       });
       setStock(stock - cantidadSolicitada);
       setAgregado(true);
     }
   };
-  const { title, autors, description, price, pictureUrl } = item;
   return (
     <div className="card mb-3" style={{ maxHeight: "500px" }}>
       <div className="row g-0">
@@ -31,7 +37,7 @@ function ItemDetail({ item, setCarrito, carrito }) {
             <h3 className="card-title">{title}</h3>
             <p className="card-text">{autors}</p>
             <p className="card-text">{description}</p>
-            <p className="card-text price">{price}</p>
+            <p className="card-text price">$ {price}</p>
             {agregado ? (
               <div>
                 <a href="/cart" className="btn btn-primary">

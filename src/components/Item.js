@@ -15,7 +15,7 @@ function Item({ item }) {
       <div className="card-body primera">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{autors}</p>
-        <p className="card-text price">{price}</p>
+        <p className="card-text price">$ {price}</p>
         <a href={`/item/${id}`} className="btn btn-primary centrado">
           Ver detalles
         </a>

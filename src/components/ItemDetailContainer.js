@@ -4,14 +4,16 @@ import ItemDetail from "./ItemDetail";
 import { Productos } from "../Data";
 import Loader from "../Loader";
 
-function ItemDetailContainer({ setCarrito, carrito }) {
+function ItemDetailContainer() {
   const [detalles, setDetalles] = useState({});
   const { id } = useParams();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getItems.then((resultado) => {
       const item = resultado.find((product) => product.id === parseInt(id));
       setDetalles(item);
+      setLoading(false);
     });
   }, [id]);
 
@@ -20,8 +22,7 @@ function ItemDetailContainer({ setCarrito, carrito }) {
       resolve(Productos);
     }, 2000);
   });
-  return (
-    <ItemDetail item={detalles} setCarrito={setCarrito} carrito={carrito} />
-  );
+
+  return <div>{loading ? <Loader /> : <ItemDetail item={detalles} />}</div>;
 }
 export default ItemDetailContainer;
