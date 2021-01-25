@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Style.css";
+import { Link } from "react-router-dom";
 
 function Item({ item }) {
   const { id, title, autors, price, pictureUrl } = item;
@@ -16,9 +17,9 @@ function Item({ item }) {
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{autors}</p>
         <p className="card-text price">$ {price}</p>
-        <a href={`/item/${id}`} className="btn btn-primary centrado">
+        <Link to={`/item/${id}`} className="btn btn-primary centrado">
           Ver detalles
-        </a>
+        </Link>
       </div>
     </div>
   );

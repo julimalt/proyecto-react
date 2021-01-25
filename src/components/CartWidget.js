@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "./Image.svg";
+import { Link } from "react-router-dom";
+import CartContext from "../CartContext";
 
 function Carrito({ cantidad }) {
   return (
@@ -11,7 +13,7 @@ function Carrito({ cantidad }) {
         justifyContent: "center",
       }}
     >
-      <a href="/cart">
+      <Link to="/cart">
         <img style={{ height: "32px" }} src={Image} alt="Carrito" />{" "}
         <span
           style={{
@@ -24,7 +26,7 @@ function Carrito({ cantidad }) {
         >
           {cantidad}
         </span>
-      </a>
+      </Link>
     </div>
   );
 }

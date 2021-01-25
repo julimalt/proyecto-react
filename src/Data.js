@@ -44,7 +44,7 @@ export const Productos = [
     title: "BATIMÓVILES: LIGA DE LA JUSTICIA",
     description:
       "Las réplicas en die cast a escala 1:32 de los autos de Batman, el héroe de Ciudad Gótica. Además, con cada entrega encontrarás un fascículo con toda la información sobre las películas y las series de TV que cautivaron a varias generaciones.",
-    price: 499.9,
+    price: 500,
     pictureUrl: "https://i.imgur.com/yka8BDN.jpg",
     categoryId: "Coleccionables",
   },
@@ -53,7 +53,7 @@ export const Productos = [
     title: "BATIMÓVILES: TUMBLER CAMO",
     description:
       "Las réplicas en die cast a escala 1:32 de los autos de Batman, el héroe de Ciudad Gótica. Además, con cada entrega encontrarás un fascículo con toda la información sobre las películas y las series de TV que cautivaron a varias generaciones.",
-    price: 499.9,
+    price: 500,
     pictureUrl: "https://i.imgur.com/CmAo5B0.jpg",
     categoryId: "Coleccionables",
   },
@@ -62,7 +62,7 @@ export const Productos = [
     title: "BATIMÓVILES: ARKHAM KNIGHT",
     description:
       "Las réplicas en die cast a escala 1:32 de los autos de Batman, el héroe de Ciudad Gótica. Además, con cada entrega encontrarás un fascículo con toda la información sobre las películas y las series de TV que cautivaron a varias generaciones.",
-    price: 499.9,
+    price: 500,
     pictureUrl: "https://i.imgur.com/RVeDFfs.jpg",
     categoryId: "Coleccionables",
   },

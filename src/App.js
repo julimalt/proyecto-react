@@ -7,6 +7,7 @@ import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Footer from "./components/Footer";
 import CartProvider from "./CartContext";
+import Cart from "./components/Cart";
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -16,10 +17,14 @@ function App() {
       <div>
         <BrowserRouter>
           <NavBar />
-          <div style={{ padding: "20px" }}>
+          <div>
             <Switch>
+              <Route exact path="/cart">
+                <Cart />
+              </Route>
               <Route exact path="/">
                 <img
+                  style={{ marginTop: "20px" }}
                   className="img"
                   src="https://i.imgur.com/uR4KNPG.png"
                   alt="banner Dr.Comics"
@@ -33,8 +38,8 @@ function App() {
                 <ItemDetailContainer />
               </Route>
             </Switch>
-            <Footer />
           </div>
+          <Footer />
         </BrowserRouter>
       </div>
     </CartProvider>

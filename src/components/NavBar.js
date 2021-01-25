@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, Fragment } from "react";
 import Carrito from "./CartWidget";
 import "../Style.css";
 import { CartContext } from "../CartContext";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   const { cantidad } = useContext(CartContext);
@@ -20,43 +21,47 @@ function NavBar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           <img className="logo" src="https://i.imgur.com/yuqFte5.png" alt="" />
-        </a>
+        </Link>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <Link className="nav-link active" aria-current="page" to="/">
                 Inicio
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" href="/category/Comics">
+              <Link className="nav-link active" to="/category/Comics">
                 Comics
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link active"
-                href="/category/Coleccionables"
+                to="/category/Coleccionables"
                 aria-disabled="true"
               >
                 Coleccionables
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link active"
-                href="/category/Merchandising"
+                to="/category/Merchandising"
                 aria-disabled="true"
               >
                 Merchandising
-              </a>
+              </Link>
             </li>
           </ul>
+          {cantidad < 1 ? (
+            <Fragment></Fragment>
+          ) : (
+            <Carrito cantidad={cantidad} />
+          )}
 
-          <Carrito cantidad={cantidad} />
-          <form className="d-flex">
+          <form className="d-flex" style={{ marginLeft: "30em" }}>
             <input
               className="form-control mx-2"
               type="search"

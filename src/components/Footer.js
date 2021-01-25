@@ -3,7 +3,7 @@ import "../Style.css";
 
 function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer position">
       <div className="container">
         <div className="row">
           <div className="col-md-8 col-sm-6 col-xs-12">

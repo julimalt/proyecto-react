@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ItemCount from "./ItemCount";
 import { CartContext } from "../CartContext";
+import { Link } from "react-router-dom";
 
 function ItemDetail({ item }) {
   const { addItem } = useContext(CartContext);
@@ -40,9 +41,9 @@ function ItemDetail({ item }) {
             <p className="card-text price">$ {price}</p>
             {agregado ? (
               <div>
-                <a href="/cart" className="btn btn-primary">
+                <Link to="/cart" className="btn btn-primary">
                   Terminar compra
-                </a>
+                </Link>
               </div>
             ) : (
               <div className="price">

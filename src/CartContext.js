@@ -16,7 +16,10 @@ function CartProvider({ children }) {
 
     setTotal(totalCosto);
 
-    const carritoCantidad = carrito.length;
+    const carritoCantidad = carrito.reduce(
+      (acumulador, producto) => acumulador + producto.cantidad,
+      0
+    );
 
     setCantidad(carritoCantidad);
   }, [carrito]);
