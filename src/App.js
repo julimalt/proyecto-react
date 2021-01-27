@@ -14,7 +14,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
   const [itemList, setItemList] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const db = firestore;
@@ -29,8 +29,8 @@ function App() {
         console.log(error);
       });
     console.log(itemList);
-    setLoading(false);
-  }, []);
+    // setLoading(false);
+  }, [itemList]);
 
   return (
     <CartProvider>
@@ -49,13 +49,13 @@ function App() {
                   src="https://i.imgur.com/uR4KNPG.png"
                   alt="banner Dr.Comics"
                 />
-                <ItemListContainer loading={loading} data={itemList} />
+                <ItemListContainer data={itemList} />
               </Route>
               <Route exact path="/category/:category">
-                <ItemListContainer />
+                <ItemListContainer data={itemList} />
               </Route>
               <Route exact path="/item/:id">
-                <ItemDetailContainer />
+                <ItemDetailContainer data={itemList} />
               </Route>
             </Switch>
           </div>

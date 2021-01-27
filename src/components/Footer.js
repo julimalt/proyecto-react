@@ -8,7 +8,7 @@ function Footer() {
         <div className="row">
           <div className="col-md-8 col-sm-6 col-xs-12">
             <p className="copyright-text">
-              Copyright &copy; 2021 All Rights Reserved by
+              Copyright &copy; 2021 All Rights Reserved by{" "}
               <a href="https://github.com/julimalt?tab=repositories">
                 Julimaalt
               </a>

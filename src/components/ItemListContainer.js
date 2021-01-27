@@ -1,15 +1,16 @@
 import ItemList from "./ItemList";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Productos } from "../Data";
 
 import Loader from "../Loader";
 
-function ItemListContainer({ data, loading }) {
+function ItemListContainer({ data }) {
   const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { category } = useParams();
 
   useEffect(() => {
+    setLoading(true);
     if (category) {
       const productosFiltrados = data.filter(
         (producto) => producto.categoryId === category
@@ -18,7 +19,8 @@ function ItemListContainer({ data, loading }) {
     } else {
       setProductos(data);
     }
-  }, [category]);
+    setLoading(false);
+  }, [category, data]);
 
   return (
     <div>

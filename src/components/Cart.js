@@ -4,11 +4,13 @@ import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 
 function Cart() {
-  const { carrito, clear, total, cantidad } = useContext(CartContext);
+  const { carrito, clear, total, getCartQuantity, getTotalPrice } = useContext(
+    CartContext
+  );
 
   return (
     <div style={{ height: "25em" }}>
-      {carrito.length > 0 ? (
+      {getCartQuantity() > 0 ? (
         <div className="container">
           <div className="row">
             <div className="col-sm-12 col-md-10 col-md-offset-1">
@@ -35,7 +37,7 @@ function Cart() {
                     </td>
                     <td className="text-right">
                       <h3>
-                        <strong>${total}</strong>
+                        <strong>${getTotalPrice()}</strong>
                       </h3>
                     </td>
                   </tr>

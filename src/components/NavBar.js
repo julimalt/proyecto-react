@@ -5,7 +5,7 @@ import { CartContext } from "../CartContext";
 import { Link } from "react-router-dom";
 
 function NavBar() {
-  const { cantidad } = useContext(CartContext);
+  const { getCartQuantity } = useContext(CartContext);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark red">
@@ -55,10 +55,10 @@ function NavBar() {
               </Link>
             </li>
           </ul>
-          {cantidad < 1 ? (
-            <Fragment></Fragment>
+          {getCartQuantity() < 1 ? (
+            <Fragment />
           ) : (
-            <Carrito cantidad={cantidad} />
+            <Carrito cantidad={getCartQuantity()} />
           )}
 
           <form className="d-flex" style={{ marginLeft: "30em" }}>

@@ -4,24 +4,20 @@ export const CartContext = React.createContext();
 
 function CartProvider({ children }) {
   const [carrito, setCarrito] = useState([]);
-  const [cantidad, setCantidad] = useState(0);
-  const [total, setTotal] = useState(0);
 
-  function setCartValues() {
+  function getTotalPrice() {
     var totalCosto = 0;
-    console.log("carrito: ", carrito);
     const totalesProducto = carrito.map((p) => p.item.price * p.cantidad);
 
     totalesProducto.map((precioItem) => (totalCosto = totalCosto + precioItem));
+    return totalCosto;
+  }
 
-    setTotal(totalCosto);
-
-    const carritoCantidad = carrito.reduce(
+  function getCartQuantity() {
+    return carrito.reduce(
       (acumulador, producto) => acumulador + producto.cantidad,
       0
     );
-
-    setCantidad(carritoCantidad);
   }
 
   function addItem(productoAAgregar) {
@@ -65,12 +61,11 @@ function CartProvider({ children }) {
     <CartContext.Provider
       value={{
         carrito,
-        cantidad,
-        total,
         addItem,
         removeItem,
         clear,
-        setCartValues,
+        getCartQuantity,
+        getTotalPrice,
       }}
     >
       {children}
