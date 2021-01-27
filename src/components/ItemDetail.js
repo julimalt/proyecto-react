@@ -5,7 +5,7 @@ import { CartContext } from "../CartContext";
 import { Link } from "react-router-dom";
 
 function ItemDetail({ item }) {
-  const { addItem } = useContext(CartContext);
+  const { addItem, setCartValues } = useContext(CartContext);
 
   const [stock, setStock] = useState(5);
 
@@ -16,9 +16,10 @@ function ItemDetail({ item }) {
   const agregarAlCarrito = (cantidadSolicitada) => {
     if (stock >= cantidadSolicitada) {
       addItem({
-        ...item,
+        item: item,
         cantidad: cantidadSolicitada,
       });
+      setCartValues();
       setStock(stock - cantidadSolicitada);
       setAgregado(true);
     }

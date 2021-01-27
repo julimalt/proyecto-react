@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "./Image.svg";
 import { Link } from "react-router-dom";
-import CartContext from "../CartContext";
 
 function Carrito({ cantidad }) {
   return (

@@ -8,7 +8,7 @@ function Cart() {
 
   return (
     <div style={{ height: "25em" }}>
-      {cantidad > 0 ? (
+      {carrito.length > 0 ? (
         <div className="container">
           <div className="row">
             <div className="col-sm-12 col-md-10 col-md-offset-1">
