@@ -1,4 +1,4 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext, Fragment, useState } from "react";
 import Carrito from "./CartWidget";
 import "../Style.css";
 import { CartContext } from "../CartContext";
@@ -54,6 +54,15 @@ function NavBar() {
                 Merchandising
               </Link>
             </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link active"
+                to="/orders"
+                aria-disabled="true"
+              >
+                Mis Compras
+              </Link>
+            </li>
           </ul>
           {getCartQuantity() < 1 ? (
             <Fragment />
@@ -61,7 +70,7 @@ function NavBar() {
             <Carrito cantidad={getCartQuantity()} />
           )}
 
-          <form className="d-flex" style={{ marginLeft: "30em" }}>
+          <form className="d-flex" style={{ marginLeft: "20em" }}>
             <input
               className="form-control mx-2"
               type="search"

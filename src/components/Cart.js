@@ -4,7 +4,7 @@ import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 
 function Cart() {
-  const { carrito, clear, total, getCartQuantity, getTotalPrice } = useContext(
+  const { carrito, clear, getCartQuantity, getTotalPrice } = useContext(
     CartContext
   );
 
@@ -49,16 +49,18 @@ function Cart() {
                       <button
                         onClick={clear}
                         type="button"
-                        className="btn btn-danger"
+                        className="btn btn-outline-danger"
                       >
                         <span className="glyphicon glyphicon-shopping-cart" />
                         Vaciar
                       </button>
                     </td>
                     <td>
-                      <button type="button" className="btn btn-success">
-                        Checkout <span className="glyphicon glyphicon-play" />
-                      </button>
+                      <Link to="/Checkout">
+                        <button type="button" className="btn btn-success">
+                          Checkout <span className="glyphicon glyphicon-play" />
+                        </button>
+                      </Link>
                     </td>
                   </tr>
                 </tbody>

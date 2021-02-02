@@ -4,7 +4,7 @@ import ItemDetail from "./ItemDetail";
 import Loader from "../Loader";
 import { firestore } from "../firebaseconfig";
 
-function ItemDetailContainer({ data }) {
+function ItemDetailContainer() {
   const [detalles, setDetalles] = useState({});
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
@@ -18,8 +18,8 @@ function ItemDetailContainer({ data }) {
       if (result.docs[0].data() === undefined) {
         setLoading(false);
       } else {
-        setLoading(false);
         setDetalles({ id: result.docs[0].id, ...result.docs[0].data() });
+        setLoading(false);
       }
     });
   }, [id]);

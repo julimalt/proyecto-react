@@ -1,6 +1,5 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.min.js";
 import "./Style.css";
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
@@ -8,6 +7,9 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import Footer from "./components/Footer";
 import CartProvider from "./CartContext";
 import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
+import Orders from "./components/Orders";
+import Shop from "./components/Shop";
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -21,6 +23,15 @@ function App() {
             <Switch>
               <Route exact path="/cart">
                 <Cart />
+              </Route>
+              <Route exact path="/checkout">
+                <Checkout />
+              </Route>
+              <Route exact path="/orders">
+                <Orders />
+              </Route>
+              <Route exact path="/shop">
+                <Shop />
               </Route>
               <Route exact path="/">
                 <img

@@ -4,6 +4,7 @@ export const CartContext = React.createContext();
 
 function CartProvider({ children }) {
   const [carrito, setCarrito] = useState([]);
+  const [totalCosto] = useState();
 
   function getTotalPrice() {
     var totalCosto = 0;
@@ -61,6 +62,7 @@ function CartProvider({ children }) {
     <CartContext.Provider
       value={{
         carrito,
+        totalCosto,
         addItem,
         removeItem,
         clear,

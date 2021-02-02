@@ -31,14 +31,12 @@ function CartItem({ producto }) {
         <strong>${producto.item.price * producto.cantidad}</strong>
       </td>
       <td className="col-sm-1 col-md-1">
-        <button
+        <img
           onClick={() => removeItem(producto)}
           type="button"
-          className="btn btn-danger"
-        >
-          <span className="glyphicon glyphicon-remove" />
-          Eliminar
-        </button>
+          src="https://i.imgur.com/iCmvmhS.png"
+          alt="Eliminar"
+        />
       </td>
     </tr>
   );
