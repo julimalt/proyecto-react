@@ -232,7 +232,7 @@ html {
 }
 body {
   display: grid;
-  overflow: hidden;
+  /* overflow: hidden; */
   text-align: center;
 }
 #container {
