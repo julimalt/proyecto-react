@@ -12,6 +12,7 @@ import Orders from "./components/Orders";
 import Shop from "./components/Shop";
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import OrderDetail from "./components/OrderDetail";
 
 function App() {
   return (
@@ -47,6 +48,9 @@ function App() {
               </Route>
               <Route exact path="/item/:id">
                 <ItemDetailContainer />
+              </Route>
+              <Route exact path="/Shop/:order">
+                <OrderDetail />
               </Route>
             </Switch>
           </div>

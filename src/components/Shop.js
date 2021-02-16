@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { firestore } from "../firebaseconfig";
 import ShopItem from "./ShopItem";
 import { Link, useLocation } from "react-router-dom";
+import Loader from "../Loader";
 
 function Shop() {
   const [ordenes, setOrdenes] = useState([]);
   const [loading, setLoading] = useState(true);
   const email = useQuery();
   useEffect(() => {
+    setLoading(true);
     const db = firestore;
     const orderCollection = db.collection("orders");
     const datos = orderCollection.where("buyer.email", "==", email);
@@ -19,7 +21,6 @@ function Shop() {
           id: o.id,
           ...o.data(),
         }));
-
         setOrdenes(collectionOrders);
         setLoading(false);
       }
@@ -29,6 +30,11 @@ function Shop() {
     const query = new URLSearchParams(useLocation().search);
     return query.get("email");
   }
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <div style={{ height: "25em" }}>
       {ordenes.length > 0 ? (
@@ -38,11 +44,9 @@ function Shop() {
               <table className="table table-hover">
                 <thead>
                   <tr>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
+                    <th className="text-center">Fecha de compra</th>
                     <th className="text-center">Id Compra</th>
                     <th className="text-center">Total</th>
-                    <th>&nbsp;</th>
                   </tr>
                 </thead>
                 <tbody>

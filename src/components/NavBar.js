@@ -1,4 +1,4 @@
-import React, { useContext, Fragment, useState } from "react";
+import React, { useContext, Fragment } from "react";
 import Carrito from "./CartWidget";
 import "../Style.css";
 import { CartContext } from "../CartContext";

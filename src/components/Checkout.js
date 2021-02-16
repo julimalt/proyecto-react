@@ -4,14 +4,17 @@ import { Link } from "react-router-dom";
 import { firestore } from "../firebaseconfig";
 import firebase from "firebase/app";
 import "../Style.css";
+import Modal from "../components/Modal";
 
 function Checkout() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [compra, setCompra] = useState(false);
   const { carrito, getTotalPrice, clear } = useContext(CartContext);
 
   function submitOrder(e) {
+    setCompra(false);
     e.preventDefault();
     const db = firestore;
     const orders = db.collection("orders");
@@ -26,7 +29,7 @@ function Checkout() {
     console.log(order);
     orders
       .add(order)
-      .then(({ id }) => alert("Anotá el id de tu compra " + id))
+      .then(() => setCompra(true))
       .then(() => {
         clear();
         setName("");
@@ -34,6 +37,11 @@ function Checkout() {
         setPhone("");
       })
       .catch((error) => console.log(error));
+    return true;
+  }
+
+  if (compra) {
+    return <Modal />;
   }
 
   return (
