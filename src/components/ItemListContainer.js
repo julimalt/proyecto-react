@@ -21,6 +21,7 @@ function ItemListContainer() {
       }
       setLoading(false);
     });
+    // eslint-disable-next-line
   }, [category]);
 
   const obtenerProductos = new Promise((resolve, reject) => {
@@ -47,7 +48,9 @@ function ItemListContainer() {
       ) : (
         <div>
           {category ? (
-            <h5>Resultados encontrados para {category}...</h5>
+            <h5 style={{ textAlign: "initial" }}>
+              Resultados encontrados para {category}...
+            </h5>
           ) : (
             <> </>
           )}

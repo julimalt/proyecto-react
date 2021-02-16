@@ -69,18 +69,6 @@ function NavBar() {
           ) : (
             <Carrito cantidad={getCartQuantity()} />
           )}
-
-          <form className="d-flex" style={{ marginLeft: "20em" }}>
-            <input
-              className="form-control mx-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Buscar
-            </button>
-          </form>
         </div>
       </div>
     </nav>

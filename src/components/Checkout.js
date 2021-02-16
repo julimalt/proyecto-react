@@ -79,7 +79,7 @@ function Checkout() {
               onChange={(e) => setPhone(e.target.value)}
             />
           </li>
-          <li>
+          <li style={{ display: "block" }}>
             <Link to="/Shop">
               <button type="submit" onClick={submitOrder}>
                 Comprar

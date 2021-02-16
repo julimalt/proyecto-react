@@ -19,7 +19,7 @@ function Orders() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </li>
-          <li>
+          <li style={{ display: "block" }}>
             <Link to={`/Shop?email=${email}`}>
               <button>Ver</button>
             </Link>
