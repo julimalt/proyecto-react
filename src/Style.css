@@ -53,7 +53,7 @@ img{
 .site-footer
 {
   background-color:#37123C;
-  padding:45px 0 20px;
+  padding:10px 0 10px;
 
 }
 .site-footer a
@@ -428,7 +428,7 @@ footer {
   text-align: center;
   font-size: 1em;
   text-transform: uppercase;
-  padding: 10px;
+  padding: 5px;
   font-family: 'Lato', sans-serif;
 }
 footer p {
