@@ -14,7 +14,7 @@ function Shop() {
     const orderCollection = db.collection("orders");
     const datos = orderCollection.where("buyer.email", "==", email);
     datos.get().then((result) => {
-      if (result.docs[0].data() === undefined) {
+      if (result.docs[0] === undefined) {
         setLoading(false);
       } else {
         const collectionOrders = result.docs.map((o) => ({
